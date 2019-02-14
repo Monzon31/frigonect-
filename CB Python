@@ -1,0 +1,29 @@
+#intialisation des listes
+A=[[0,0,0,1,1,0,1],[0,0,1,1,0,0,1],[0,0,1,0,0,1,1],[0,1,1,1,1,0,1],[0,1,0,0,0,1,1],[0,1,1,0,0,0,1],[0,1,0,1,1,1,1],[0,1,1,1,0,1,1],[0,1,1,0,1,1,1],[0,0,0,1,0,1,1]]
+B=[[0,1,0,0,1,1,1],[0,1,1,0,0,1,1],[0,0,1,1,0,1,1],[0,1,0,0,0,0,1],[0,0,1,1,1,0,1],[0,1,1,1,0,0,1],[0,0,0,0,1,0,1],[0,0,1,0,0,0,1],[0,0,0,1,0,0,1],[0,0,1,0,1,1,1]]
+C=[[1,1,1,0,0,1,0],[1,1,0,0,1,1,0],[1,1,0,1,1,0,0],[1,0,0,0,0,1,0],[1,0,1,1,1,0,0],[1,0,0,1,1,1,0],[1,0,1,0,0,0,0],[1,0,0,0,1,0,0],[1,0,0,1,0,0,0],[1,1,1,0,1,0,0]]
+motif=[[1,0,1,A,A,A,A,A,A,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,A,B,A,B,B,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,A,B,B,A,B,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,A,B,B,B,A,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,A,A,B,B,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,B,A,A,B,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,B,B,A,A,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,A,B,A,B,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,A,B,B,A,0,1,0,1,0,C,C,C,C,C,C,1,0,1],[1,0,1,A,B,B,A,B,A,0,1,0,1,0,C,C,C,C,C,C,1,0,1]]
+code1=list(raw_input("Entrez 12 chiffres : "))#le treizième chffre est déterminé par une clé de contrôle
+code2=[]
+codebin=[]
+#transfert et conversion des chiffres entrés par l'utilisateur
+for i in range (len(code1)):
+    code2.append(int(code1[i]))
+ 
+P= []
+I=[]
+for chiffre in code2:
+    if chiffre%2:
+        I.append(chiffre)
+    else:
+        P.append(chiffre)
+n=len(I)
+s=sum(P)
+tra=s+3*sum(I)
+m=tra%10
+cle=0
+if m==0:
+    cle=0
+else:
+    cle=10-m
+code2.append(cle)
